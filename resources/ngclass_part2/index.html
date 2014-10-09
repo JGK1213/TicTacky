@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="main.js"></script>
+
+</head>
+<body ng-app="myApp">
+	<div class="wrapper" ng-controller="mysuckaController">
+		<div class="box">
+		<div class="instructorBox" ng-class="{red: isred}" isred = !isred ng-click="changeColor();" ng-repeat="arbitrary in teachers">{{arbitrary.name}}</div>
+		</div>
+		<div class="box"></div>
+		<div class="box"></div>
+</div>
+
+
+</body>
+</html>
+
+

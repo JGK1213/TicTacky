@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+	<script src="main.js"></script>
+</head>
+<body ng-app="myApp">
+	<div class="wrapper" ng-controller="myController">
+		<div class="box">
+			<div class="instructorBox" ng-class="{red: isred}"  ng-click="changeColor(); isred = !isred" ng-repeat="instructor in instructors">{{instructor.name}}</div>
+		</div>
+		<div class="box">
+			<div class="originalAnimation" ng-class="animation" ng-click="down()"></div>
+		</div>
+		<div class="box"></div>
+
+	</div>
+	
+</body>
+</html>
+
+<!-- by default (ngclass) isred is false, by equaling it to the opposite it makes it red (true) -->

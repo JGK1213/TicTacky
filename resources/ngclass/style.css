@@ -1,0 +1,41 @@
+html, body {
+	height: 100%;
+}
+
+.wrapper {
+	height: 50%;
+	width: 100%;
+	border: 1px solid black;
+}
+
+.box {
+	width: 33%;
+	height: 100%;
+	float: left;
+	/*margin: 0 1%;*/
+	border: 1px solid blue;
+}
+
+.instructorBox {
+	height: 14%;
+	border: 1px solid red;
+}
+
+.red {
+	background-color: red;
+}
+
+.originalAnimation {
+	height: 20%;
+	border: 1px solid green;
+}
+
+.next {
+	margin-top: 80%;
+	height: 50%;
+	transition: all 5s linear;
+
+}
+
+/*.example { transition: [transition-property] [transition-duration] [transition-timing-function] [transition-delay]; }*/
+/* ^ example for explaining .next*/
