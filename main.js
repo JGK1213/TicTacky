@@ -34,7 +34,8 @@ TTTApp.controller('TTTController', function ($scope) {
     console.log("Cell was: " + thisCell.status) ;
     if (($scope.movecounter % 2) == 1) {
       thisCell.status = "X" ;  
-    } else {
+    } 
+    else {
       thisCell.status = "O" ;
     } 
     console.log("Cell is now: " + thisCell.status) ;

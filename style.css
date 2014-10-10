@@ -22,15 +22,15 @@ html, body{
  .theBox {
 	width: 468px;
 	height: 468px;
-    border: 10px solid red;
+    border: 10px solid black;
     color: white;
     margin: 0 auto;
 }
 
 .border {
-	width: 460px;
-	height: 460px;
-	border: 10px solid green;
+	width: 455px;
+	height: 455px;
+	border: 10px solid black;
 	z-index: 5px;
 	margin: 0 auto;
 
@@ -42,6 +42,7 @@ html, body{
 	display: inline-block;
     float: left;
     padding: 0px ;
+    z-index: -5px;
     border-style: solid;
     border-color: blue;
 }
