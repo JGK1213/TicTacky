@@ -2,7 +2,7 @@ html, body{
 	height: 100%;
 }
 
-.wrapper{
+/*.wrapper{
 	margin: 0 auto;
 	height: 25%;
 	width: 50%;
@@ -12,9 +12,48 @@ html, body{
 .square{
 	width: 33%;
 	height: 100%;
-	border: 1px solid red;
+	border: 1px solid;
 	float: left;
 }
 .clearboth{
   		clear: both;
-  	}
+  	}*/
+
+ .theBox {
+	width: 468px;
+	height: 468px;
+    border: 10px solid red;
+    color: white;
+    margin: 0 auto;
+}
+
+.border {
+	width: 460px;
+	height: 460px;
+	border: 10px solid green;
+	z-index: 5px;
+	margin: 0 auto;
+
+}
+
+.allCellsAlways {
+    width: 150px;
+	height: 150px;
+	display: inline-block;
+    float: left;
+    padding: 0px ;
+    border-style: solid;
+    border-color: blue;
+}
+
+.xclass {
+	background-color: red ;
+}
+
+.oclass {
+	background-color: blue ;
+}
+
+.blankclass {
+	background-color: gray ;
+}
