@@ -8,19 +8,39 @@
 </head>
 <body  ng-app="TTTApp">
 	 <div ng-controller="TTTController">
+
+        <!-- <ul>
+            <li x-ng-repeat="i in issues">{{i.title}}</li>
+        </ul> -->
+        <select x-ng-model="rateMe">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <div x-our-rating="" x-rating-value="rateMe"></div>
+        
+        <!-- <div x-our-rating="1:2:3"></div> -->
+
         <p>TTT Reference: Step 1</p>
         CLICK COUNTER: {{movecounter}}
         
         <div class="theBox">
             <div ng-repeat="currentCell in cellList">
+
                 <div class="allCellsAlways" ng-click="playerPicks(currentCell)"
                 ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O'}">
+                
                 Cell Contents: {{currentCell.status}}
             </div>
+
         </div>
         <div class="border"></div>
     </div>
+   
     <button onclick="document.getElementById('up7913').disabled=true;document.getElementById('down7913').disabled=false;" type="submit" class="positive" name="up7913" id="up7913">First</button>
     <button onclick="this.disabled=true;document.getElementById('up7913').disabled=false;" type="submit" class="negative" name="down7913" id="down7913">Second</button>
 </body>
 </html>
+
