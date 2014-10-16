@@ -1,46 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="TTTApp">
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+      <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script> 
+    <!-- Firebase -->
+    <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 	<script src="main.js"></script>
 	<title>Jackie's TicTacToe</title>
 </head>
-<body  ng-app="TTTApp">
-	 <div ng-controller="TTTController">
+<body>
 
-        <!-- <ul>
-            <li x-ng-repeat="i in issues">{{i.title}}</li>
-        </ul> -->
-        <select x-ng-model="rateMe">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <div x-our-rating="" x-rating-value="rateMe"></div>
-        
-        <!-- <div x-our-rating="1:2:3"></div> -->
+	 <div ng-controller="TTTController" ng-model="gameController">
+        <h3>Checking changes</h3>
+        <!-- ng-model = "gameContainer" -->
 
         <p>TTT Reference: Step 1</p>
-        CLICK COUNTER: {{movecounter}}
+        CLICK COUNTER: {{gameContainer.movecounter}}<br>
+        X Win Counter: {{gameContainer.xWin}}<br>
+        O Win Counter: {{gameContainer.oWin}}
         
         <div class="theBox">
-            <div ng-repeat="currentCell in cellList">
+            <div ng-repeat="currentCell in gameContainer.cellList">
 
                 <div class="allCellsAlways" ng-click="playerPicks(currentCell)"
                 ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O'}">
                 
                 Cell Contents: {{currentCell.status}}
-            </div>
+                </div>
 
         </div>
         <div class="border"></div>
+        <button ng-click="resetGame()">RESET GAME</button><br>
     </div>
-   
-    <button onclick="document.getElementById('up7913').disabled=true;document.getElementById('down7913').disabled=false;" type="submit" class="positive" name="up7913" id="up7913">First</button>
-    <button onclick="this.disabled=true;document.getElementById('up7913').disabled=false;" type="submit" class="negative" name="down7913" id="down7913">Second</button>
+    <div>
+        <button ng-click="choosePlayer()" ng-disabled="gameContainer.isDisabled">CHOOSE FIRST PLAYER</button>
+        checking: {{gameContainer.firstString}}
+        </div>
+    <div class="tie">{{gameContainer.tieGame}}</div><br>
+    <div class="win">{{gameContainer.writeWin}}</div>
+</div>
+
 </body>
 </html>
 
