@@ -79,7 +79,7 @@ $scope.remoteGameContainer =
         $scope.checkWinner();
 
         $scope.gameContainer.movecounter++;
-        if ($scope.gameContainer.movecounter > 0) {
+        if ($scope.gameContainer.movecounter != 0) {
             $scope.gameContainer.isDisabled = true;
           }
         }
@@ -95,7 +95,7 @@ $scope.remoteGameContainer =
           $scope.checkWinner();
 
           $scope.gameContainer.movecounter++;
-          if ($scope.gameContainer.movecounter > 0) {
+          if ($scope.gameContainer.movecounter != 0) {
             $scope.gameContainer.isDisabled = true;
           }
         }
@@ -140,29 +140,31 @@ $scope.remoteGameContainer =
       )
 
       {
-        if (($scope.gameContainer.movecounter % 2) == 0) {
-          $scope.gameContainer.writeWin = "Player X, You Won!";
-          $scope.gameContainer.xWin++;
+        if (($scope.gameContainer.startXorO % 2) == 0) {
+          if (($scope.gameContainer.movecounter % 2) == 0) {
+            $scope.gameContainer.writeWin = "Player X, You Won!";
+            $scope.gameContainer.xWin++;
+          }
+          else {
+            $scope.gameContainer.writeWin = "Player O, You Won!";
+            $scope.gameContainer.oWin++;
+          }
         }
         else {
-          $scope.gameContainer.writeWin = "Player O, You Won!";
-          $scope.gameContainer.oWin++;
+          if (($scope.gameContainer.movecounter % 2) == 0) {
+            $scope.gameContainer.writeWin = "Player O, You Won!";
+            $scope.gameContainer.oWin++;
+          }
+          else {
+            $scope.gameContainer.writeWin = "Player X, You Won!";
+            $scope.gameContainer.xWin++;
+          }
         }
       }
-      else if ($scope.gameContainer.movecounter == 8){
+        else if ($scope.gameContainer.movecounter == 8){
         $scope.gameContainer.tieGame = "Tie game!";
-       }
+        }
 
-    };
-
-  //    $scope.winCount = function() {
-  //     if ($scope.gameContainer.writeWin = "Player X, you Won!") {
-  //       $scope.gameContainer.xWin++;
-  //     }
-  //     else if ($scope.gameContainer.writeWin = "Player O, You Won!") {
-  //       $scope.gameContainer.oWin++;
-  //     }
-  // };
 
     $scope.resetGame = function() {
       $scope.gameContainer.writeWin = "";
@@ -181,7 +183,7 @@ $scope.remoteGameContainer =
       {status: "I"}
       ];
     };
-
+  }
 });
 
 //tie logic = done
