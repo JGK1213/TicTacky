@@ -22,20 +22,29 @@
         CLICK COUNTER: {{gameContainer.movecounter}}<br>
         X Win Counter: {{gameContainer.xWin}}<br>
         O Win Counter: {{gameContainer.oWin}}
-        
+<div class="wrapper">
+     <div ng-class="{'fillImageX': 'revealImage()'}"></div>
+     <div ng-class="{'fillImageO': 'revealImage2()'}"></div>
         <div class="theBox">
+            
+
             <div ng-repeat="currentCell in gameContainer.cellList">
+                
 
                 <div class="allCellsAlways" ng-click="playerPicks(currentCell)"
-                ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O'}">
+                ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O', blankclass: currentCell.status != 'X' && currentCell.status != 'O'}">
                 
                 Cell Contents: {{currentCell.status}}
                 </div>
 
         </div>
+
         <div class="border"></div>
         <button ng-click="resetGame()">RESET GAME</button><br>
+        
+        </div>
     </div>
+
     <div>
         <button ng-click="choosePlayer()" ng-disabled="gameContainer.isDisabled">CHOOSE FIRST PLAYER</button>
         checking: {{gameContainer.firstString}}

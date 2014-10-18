@@ -19,12 +19,23 @@ html, body{
   		clear: both;
   	}*/
 
+ .wrapper {
+ 	position: relative;
+ 	width: 468px;
+	height: 468px;
+		margin-left: 25%;
+
+ 	 }
+
  .theBox {
 	width: 468px;
 	height: 468px;
     border: 10px solid black;
     color: white;
     margin: 0 auto;
+    position: absolute;
+    /*background-image: url(images/dog.jpg);*/
+
 }
 
 .border {
@@ -35,26 +46,51 @@ html, body{
 	margin: 0 auto;
 
 }
+/*.fillImageX {
+	background-image: url(images/dog.jpg);
+}*/
+
+.fillImageX {
+	background-image: url(images/dog.jpg);
+	background-size: cover;
+	z-index: -50;
+	position: absolute;
+	width: 268px;
+	height: 268px;
+	
+
+}
+
+.fillImageO {
+	background-image: url(images/dog2.jpg);
+	background-size: cover;
+	z-index: -100;
+	position: absolute;
+	width: 468px;
+	height: 468px;
+
+
+}
 
 .allCellsAlways {
     width: 150px;
 	height: 150px;
 	display: inline-block;
     float: left;
-    padding: 0px ;
+    padding: 0px;
     z-index: -5px;
     border-style: solid;
     border-color: blue;
 }
 
 .xclass {
-	background-color: red ;
+	background-color: transparent;
+}
+.oclass {
+	background-color: transparent;
 }
 
-.oclass {
-	background-color: blue ;
-}
 
 .blankclass {
-	background-color: gray ;
+	background-color: black;
 }
