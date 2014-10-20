@@ -34,7 +34,7 @@ $scope.remoteGameContainer =
   $scope.writeWin = "";
   $scope.tieGameX = "";
   $scope.startXorO = 0;
-  $scope.firstString = "X starts!";
+  $scope.firstString = "Red starts!";
   $scope.isDisabled = false;
   $scope.gameWonX = false;
  
@@ -124,10 +124,10 @@ $scope.remoteGameContainer =
   $scope.choosePlayer = function() {
     $scope.gameContainer.whosTurn = !$scope.gameContainer.whosTurn;
       if ($scope.gameContainer.whosTurn) {
-      $scope.gameContainer.firstString = "X starts!";
+      $scope.gameContainer.firstString = "Red starts!";
       }
       else {
-      $scope.gameContainer.firstString = "O starts!";
+      $scope.gameContainer.firstString = "Blue starts!";
       }
   };
 
@@ -151,12 +151,12 @@ $scope.remoteGameContainer =
 
       {
         if ($scope.gameContainer.whosTurn) {
-          $scope.gameContainer.writeWin = "Player O, You Won!";
+          $scope.gameContainer.writeWin = "Blue, You Won!";
           $scope.gameContainer.oWin++;
           $scope.gameContainer.gameWon = true;
         }
         else {
-          $scope.gameContainer.writeWin = "Player X, You Won!";
+          $scope.gameContainer.writeWin = "Red, You Won!";
           $scope.gameContainer.xWin++;
           $scope.gameContainer.gameWon = true;
         }
@@ -177,7 +177,7 @@ $scope.remoteGameContainer =
       };
       $scope.gameContainer.gameWon = false;
       
-      $scope.gameContainer.firstString = "X starts!";
+      $scope.gameContainer.firstString = "Red starts!";
 
       $scope.gameContainer.cellList = [
       {status: "A"}, 
