@@ -36,8 +36,8 @@ $scope.remoteGameContainer =
   $scope.startXorO = 0;
   $scope.firstString = "X starts!";
   $scope.isDisabled = false;
-  $scope.hideImageX = false;
-  $scope.hideImageO = false;
+  $scope.gameWonX = false;
+ 
 
 
 
@@ -53,9 +53,8 @@ $scope.remoteGameContainer =
     startXorO: $scope.startXorO,
     firstString: $scope.firstString,
     isDisabled: $scope.isDisabled,
-    hideImageX: $scope.hideImageX,
-    hideImageO: $scope.hideImageO,
-    whosTurn : $scope.whosTurn
+    whosTurn : $scope.whosTurn,
+    gameWon: $scope.gameWonX
   };
 
   // Everywhere else in your program, use $scope.gameContainer.cellListArray instead of cellList.
@@ -80,83 +79,51 @@ $scope.remoteGameContainer =
 
   $scope.playerPicks = function(thisCell) {
     console.log("Cell was: " + thisCell.status);
-    if (($scope.gameContainer.startXorO % 2) == 0){
-      if(thisCell.status != "X" && thisCell.status != "O") {
-      
-        if ($scope.whosTurn) {
-           thisCell.status = "X";  
-           $scope.whosTurn = false;
-        } 
-        else {
+    if ($scope.gameContainer.gameWon != true) {
+      if (($scope.gameContainer.startXorO % 2) == 0){
+        if(thisCell.status != "X" && thisCell.status != "O") {
+        
+          if ($scope.gameContainer.whosTurn) {
+             thisCell.status = "X";
+             $scope.gameContainer.whosTurn = false;
+          } 
+          else {
+              thisCell.status = "O";
+              $scope.gameContainer.whosTurn = true;
+          }
+          $scope.checkWinner();
+          $scope.gameContainer.movecounter++;
+        if ($scope.gameContainer.movecounter > 0) {
+            $scope.gameContainer.isDisabled = true;
+        }
+        }
+      }
+      else {
+        if(thisCell.status != "X" && thisCell.status != "O") {
+          if ($scope.gameContainer.whosTurn) {
             thisCell.status = "O";
-            $scope.whosTurn = true;
+            $scope.gameContainer.whosTurn = false;  
+          } 
+          else {
+            thisCell.status = "X"
+            $scope.gameContainer.whosTurn = true;
+          }
+          $scope.checkWinner();
+          $scope.gameContainer.movecounter++;
+        if ($scope.gameContainer.movecounter > 0) {
+            $scope.gameContainer.isDisabled = true;
         }
-        $scope.checkWinner();
-        $scope.gameContainer.movecounter++;
-      if ($scope.gameContainer.movecounter > 0) {
-          $scope.gameContainer.isDisabled = true;
-      }
-      }
-    }
-    else {
-      if(thisCell.status != "X" && thisCell.status != "O") {
-        if ($scope.whosTurn) {
-          thisCell.status = "O";
-          $scope.whosTurn = false;  
-        } 
-        else {
-          thisCell.status = "X"
-          $scope.whosTurn = true;
         }
-        $scope.checkWinner();
-        $scope.gameContainer.movecounter++;
-      if ($scope.gameContainer.movecounter > 0) {
-          $scope.gameContainer.isDisabled = true;
-      }
       }
     }
   console.log("Cell is now: " + thisCell.status);
   };
 
-  // $scope.revealImage = function() {
-  //   if (($scope.gameContainer.startXorO % 2) == 0){
-  //     if ($scope.whosTurn/*($scope.gameContainer.movecounter % 2) == 0)*/) { $scope.gameContainer.hideImageX = false; 
-  //       }
-  //     else {
-  //       $scope.gameContainer.hideImageX = true;
-  //     }
-  //   }
-  //   else {
-  //     if (($scope.gameContainer.movecounter % 2) == 0) {
-  //       $scope.gameContainer.hideImageX = true;  
-  //       } 
-  //     else {
-  //       $scope.gameContainer.hideImageX = false;
-  //       }
-  //     }
-  // };
-
-  // $scope.revealImage2 = function() {
-  //   if (($scope.gameContainer.startXorO % 2) == 0){
-  //     if (($scope.gameContainer.movecounter % 2) == 0) { $scope.gameContainer.hideImageO = true;  
-  //       }
-  //     else {
-  //       $scope.gameContainer.hideImageO = false;
-  //     }
-  //   }
-  //   else {
-  //     if (($scope.gameContainer.movecounter % 2) == 0) {
-  //       $scope.gameContainer.hideImageO = false;  
-  //       } 
-  //     else {
-  //       $scope.gameContainer.hideImageO = true;
-  //       }
-  //     }
-  // };
+  
 
   $scope.choosePlayer = function() {
-    $scope.whosTurn = !$scope.whosTurn;
-      if ($scope.whosTurn) {
+    $scope.gameContainer.whosTurn = !$scope.gameContainer.whosTurn;
+      if ($scope.gameContainer.whosTurn) {
       $scope.gameContainer.firstString = "X starts!";
       }
       else {
@@ -183,13 +150,15 @@ $scope.remoteGameContainer =
       )
 
       {
-        if ($scope.whosTurn) {
+        if ($scope.gameContainer.whosTurn) {
           $scope.gameContainer.writeWin = "Player O, You Won!";
           $scope.gameContainer.oWin++;
+          $scope.gameContainer.gameWon = true;
         }
         else {
           $scope.gameContainer.writeWin = "Player X, You Won!";
           $scope.gameContainer.xWin++;
+          $scope.gameContainer.gameWon = true;
         }
       }
         
@@ -203,9 +172,10 @@ $scope.remoteGameContainer =
       $scope.gameContainer.tieGame = "";
       $scope.gameContainer.isDisabled = false;
       $scope.gameContainer.movecounter=0;
-      $scope.whosTurn = {  
+      $scope.gameContainer.whosTurn = {  
        turn : true
       };
+      $scope.gameContainer.gameWon = false;
       
       $scope.gameContainer.firstString = "X starts!";
 

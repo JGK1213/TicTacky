@@ -1,5 +1,35 @@
-html, body{
+html{
 	height: 100%;
+	background: url(images/bg.jpg) no-repeat center center fixed;
+	background-size: cover;
+	max-width: 100%;
+	
+}
+body{
+	max-height: 100%;
+	max-width: 100%;
+	font-family: 'Roboto Condensed';
+	
+
+	
+}
+
+.img {
+
+	margin: -7px auto auto 390px;
+	position: fixed;
+	
+}
+
+
+
+
+.win {
+	font-size: 30px;
+}
+
+.tie {
+	font-size: 30px;
 }
 
 /*.wrapper{
@@ -19,78 +49,109 @@ html, body{
   		clear: both;
   	}*/
 
- .wrapper {
+/* .wrapper {
  	position: relative;
  	width: 468px;
 	height: 468px;
 		margin-left: 25%;
 
- 	 }
+ 	 }*/
 
  .theBox {
 	width: 468px;
 	height: 468px;
-    border: 10px solid black;
-    color: white;
-    margin: 0 auto;
-    position: absolute;
+    color: black;
+    margin: 15px auto;
+
+    /*position: absolute;*/
     /*background-image: url(images/dog.jpg);*/
+    background: url(images/tictac_bg2.png) no-repeat center center fixed;
+  
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+   
+  
 
 }
 
-.border {
+
+/*.border {
 	width: 455px;
 	height: 455px;
 	border: 10px solid black;
 	z-index: 5px;
 	margin: 0 auto;
 
-}
-/*.fillImageX {
-	background-image: url(images/dog.jpg);
 }*/
 
-.fillImageX {
-	background-image: url(images/dog.jpg);
-	background-size: cover;
-	z-index: -50;
-	position: absolute;
-	width: 268px;
-	height: 268px;
-	
-
-}
-
-.fillImageO {
-	background-image: url(images/dog2.jpg);
-	background-size: cover;
-	z-index: -100;
-	position: absolute;
-	width: 468px;
-	height: 468px;
-
-
-}
+/*.wrapper {
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+}*/
 
 .allCellsAlways {
     width: 150px;
-	height: 150px;
-	display: inline-block;
+		height: 150px;
+		display: inline-block;
     float: left;
     padding: 0px;
-    z-index: -5px;
+    /*z-index: -5px;*/
     border-style: solid;
-    border-color: blue;
+    border-color: transparent;
+    margin: 0px auto auto auto;
+   
+  
+
+
+        /*change to transparent*/
 }
 
 .xclass {
-	background-color: transparent;
+	/*background-color: transparent;*/
+	height: 150px;
+	width: 150px;
+	background: url(images/tictac_bg_red.png) no-repeat center center fixed;
+	  opacity: 1.0;
+  filter: alpha(opacity=40);
+
+	
+/*	background-position: 50% 37%;
+	position: static;*/
+	/*bottom: 100px;*/
+	/*background-size: cover;*/
+	
 }
+
+.xclass:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=40);
+
+   }
+
 .oclass {
-	background-color: transparent;
+	/*background-color: transparent;*/
+	height: 150px;
+	width: 150px;
+	background: url(images/tictac_bg_blue.png) no-repeat center center fixed;
+	  opacity: 1.0;
+  filter: alpha(opacity=40);
+/*	background-position: 50% 37%;
+	position: static;*/
+/*	position: relative;
+	bottom: 50px;*/
+	/*background-size: fixed;*/
+	
 }
 
+.oclass:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=40);
 
-.blankclass {
+   }
+
+
+/*.blankclass {
 	background-color: black;
-}
+	background: url(images/check_size.jpg);
+	
+}*/

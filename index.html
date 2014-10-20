@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="TTTApp">
+<html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
@@ -10,47 +10,55 @@
     <!-- AngularFire -->
     <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
 	<script src="main.js"></script>
-	<title>Jackie's TicTacToe</title>
+	<title>TicTacTotem</title>
+
 </head>
-<body>
+<body ng-app="TTTApp">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <div class="img"><img src= "images/tictac_title.png"></div>
 
 	 <div ng-controller="TTTController" ng-model="gameController">
-        <h3>Checking changes</h3>
         <!-- ng-model = "gameContainer" -->
 
-        <p>TTT Reference: Step 1</p>
-        CLICK COUNTER: {{gameContainer.movecounter}}<br>
-        X Win Counter: {{gameContainer.xWin}}<br>
-        O Win Counter: {{gameContainer.oWin}}
-<div class="wrapper">
-     <div ng-class="{'fillImageX': 'revealImage()'}"></div>
-     <div ng-class="{'fillImageO': 'revealImage2()'}"></div>
+        <p> X Win Counter: {{gameContainer.xWin}}</p>
+        <div>O Win Counter: {{gameContainer.oWin}}</div><br>
+        <!-- TT Reference: Step 1
+        CLICK COUNTER: {{gameContainer.movecounter}} -->
+      
+<!-- 
+        <div class="img"><img src= "images/tictac_title.png"></div> -->
+
         <div class="theBox">
             
 
-            <div ng-repeat="currentCell in gameContainer.cellList">
+            <div class="wrapper" ng-repeat="currentCell in gameContainer.cellList">
                 
 
                 <div class="allCellsAlways" ng-click="playerPicks(currentCell)"
-                ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O', blankclass: currentCell.status != 'X' && currentCell.status != 'O'}">
+                ng-class="{xclass: currentCell.status=='X', oclass: currentCell.status =='O'}">
+
+                <!-- , blankclass: currentCell.status != 'X' && currentCell.status != 'O' -->
                 
-                Cell Contents: {{currentCell.status}}
+               <!--  Cell Contents: {{currentCell.status}} -->
                 </div>
 
         </div>
 
-        <div class="border"></div>
+        <!-- <div class="border"></div> -->
         <button ng-click="resetGame()">RESET GAME</button><br>
         
-        </div>
-    </div>
+        
+    <!-- </div> -->
 
     <div>
         <button ng-click="choosePlayer()" ng-disabled="gameContainer.isDisabled">CHOOSE FIRST PLAYER</button>
         checking: {{gameContainer.firstString}}
         </div>
-    <div class="tie">{{gameContainer.tieGame}}</div><br>
+    <div class="tie">{{gameContainer.tieGame}}</div>
     <div class="win">{{gameContainer.writeWin}}</div>
+
+</div>
 </div>
 
 </body>
